@@ -1,0 +1,45 @@
+{
+  "name": "tourney",
+  "version": "3.0.0",
+  "private": true,
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "@babel/core": "*",
+    "@babel/preset-env": "*",
+    "@babel/preset-react": "*",
+    "@babel/plugin-proposal-class-properties": "*",
+    "babel-loader": "*"
+  },
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
+    "@material-ui/styles": "latest",
+    "@material-ui/pickers": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "shortid": "latest",
+    "axios": "latest",
+    "moment": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "watch": "webpack --watch --mode=development --info-verbosity verbose",
+    "build": "webpack --mode=development",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
