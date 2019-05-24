@@ -28,10 +28,16 @@ class LeagueEditTeamsPage extends React.Component {
     this.setState({teams: league.teams});
   }
 
+  handleTeamnameChange = (team, newName) => {
+    team.name = newName;
+    this.setState({teams: league.teams});
+  }
+
   handleAddTeam = event => {
     if (event.key === 'Enter') {
       event.preventDefault();
       league.addTeam(event.target.value);
+      event.target.value = "";
       this.setState({teams: league.teams});
     }
   }
@@ -42,7 +48,7 @@ class LeagueEditTeamsPage extends React.Component {
 
     return (
       <div>
-      <TeamList teams={teams} handleRemove={this.handleRemoveTeam} />
+      <TeamList teams={teams} handleTeamnameChange={this.handleTeamnameChange} handleRemove={this.handleRemoveTeam} />
       <TextField 
               fullWidth={true}
               label="Mannschaftsname"
