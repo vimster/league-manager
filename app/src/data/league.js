@@ -107,9 +107,9 @@ league.getTable = function() {
 
 	return table.sort((team1, team2) => {
 		if (team1.points === team2.points) {
-			return team1.sets < team2.sets;
+			return team2.sets - team1.sets;
 		}
-		return team1.points < team2.points;
+		return team2.points - team1.points;
 	});
 };
 
@@ -148,7 +148,6 @@ league.getMatchdays = function() {
 
 league.save = function() {
 	axios.post('/api/saveLeague.php', {accessKey: context.accessKey, id: league.id, league: league}).then(function(res) {
-	console.log(res);
   		window.location.reload();
 	});
 }

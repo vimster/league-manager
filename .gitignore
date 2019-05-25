@@ -1,10 +1,6 @@
-app/server-config.coffee
 start_server.bat
 start_futon.url
 node_modules
-public/js/app.js
-public/js/tree-test.js
-public/css/**/*.css
 *.lnk
 
 #################
