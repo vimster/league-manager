@@ -43,8 +43,8 @@ class GamesEditTable extends React.Component {
           </TableRow>
         </TableHead>
         <TableBody>
-          {games.map(game => (
-            <TableRow key={game.team1 + game.team2}>
+          {games.map((game, index) => (
+            <TableRow key={index}>
               <TableCell>
                 <Select value={game.team1} onChange={(event) => {game.team1 = event.target.value; refresh()}}>
                           {teams.map((team) => (
