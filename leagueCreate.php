@@ -1,11 +1,3 @@
-<?php 
-$league = (object) [
-    'name' => 'Jane Doe',
-    'email' => 'janedoe@gmail.com',
-    'logged' => true
-];
-$accessKey = "verysecurekey";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +5,6 @@ $accessKey = "verysecurekey";
 
 <script type="text/javascript">
     var context = {
-        accessKey: "<?php echo $accessKey; ?>",
         navigation: {
             label: "Liga anlegen",
           }

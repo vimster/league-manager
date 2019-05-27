@@ -16,26 +16,35 @@ const styles = theme => ({
 class LeagueCreatePage extends React.Component {
 
   state = {
-    name: ""
+    name: "",
+    password: ""
   }
 
   handleNameChange = (event) => {
     this.setState({name: event.target.value});
   }
 
+    handlePasswordChange = (event) => {
+    this.setState({password: event.target.value});
+  }
+
   render() {
     const { classes } = this.props;
-    const { name } = this.state;
+    const { name, password } = this.state;
 
     return (
       <div className={classes.root}>
       <TextField 
-              hintText="Liganame"
               label="Liganame"
               fullWidth={true}
               onChange={this.handleNameChange}
            ></TextField>
-      <Button className={classes.button} variant="contained" color="primary" onClick={() => league.create(name)}>
+      <TextField 
+        label="Passwort"
+        fullWidth={true}
+        onChange={this.handlePasswordChange}
+     ></TextField>
+      <Button className={classes.button} variant="contained" color="primary" onClick={() => league.create(name, password)}>
         Liga anlegen
       </Button>
       </div>

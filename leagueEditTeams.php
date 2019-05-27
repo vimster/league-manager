@@ -1,6 +1,5 @@
 <?php 
 $league = file_get_contents("data/" . $_GET['id'] . ".json");
-$accessKey = "verysecurekey";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +10,6 @@ $accessKey = "verysecurekey";
     var league = <?php echo $league; ?>;
     var context = {
         league: league,
-        accessKey: "<?php echo $accessKey; ?>",
         navigation: {
             label: league.name + " - Bearbeiten",
             subnavi: {

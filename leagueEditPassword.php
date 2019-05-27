@@ -1,10 +1,6 @@
-<?php
-session_start();
-$leagueId = $_GET['id'];
-
-
-$league = file_get_contents("data/" . $leagueId . ".json");
-
+<?php 
+$league = file_get_contents("data/" . $_GET['id'] . ".json");
+$accessKey = "verysecurekey";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +11,7 @@ $league = file_get_contents("data/" . $leagueId . ".json");
     var league = <?php echo $league; ?>;
     var context = {
         league: league,
+        accessKey: "<?php echo $accessKey; ?>",
         navigation: {
             label: league.name + " - Bearbeiten",
             subnavi: {
@@ -33,9 +30,9 @@ $league = file_get_contents("data/" . $leagueId . ".json");
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-    <div id="leagueEditName"></div>
+    <div id="leagueEditPassword"></div>
 
-    <script type="text/javascript" src="/app/build/leagueEditName.js" ></script>
+    <script type="text/javascript" src="/app/build/leagueEditPassword.js" ></script>
 
 </body>
 

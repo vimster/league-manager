@@ -147,16 +147,17 @@ league.getMatchdays = function() {
 };
 
 league.save = function() {
-	axios.post('/api/saveLeague.php', {accessKey: context.accessKey, id: league.id, league: league}).then(function(res) {
+	axios.post('/api/saveLeague.php', {id: league.id, league: league}).then(function(res) {
   		window.location.reload();
 	});
 }
 
-league.create = function(name) {
+league.create = function(name, password) {
 	let id = shortid.generate();
 	league.id = id;
 	league.name = name;
-	axios.post('/api/saveLeague.php', {accessKey: context.accessKey, id: id, league: league}).then(function(res) {
+	axios.post('/api/saveLeague.php', {password: password, id: id, league: league}).then(function(res) {
+		
   		window.location.href = "/leagueEditName.php?id=" + id;
 	});
 }

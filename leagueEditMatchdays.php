@@ -1,6 +1,5 @@
 <?php 
 $league = file_get_contents("data/" . $_GET['id'] . ".json");
-$accessKey = "verysecurekey";
 ?>
 <!DOCTYPE html>
 <html lang="en">

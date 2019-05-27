@@ -6,6 +6,7 @@ module.exports = {
   	index: './src/pages/index.js',
   	matchdays: './src/pages/matchdays.js',
     leagueCreate: './src/pages/leagueCreate.js',
+    leagueEnterPassword: './src/pages/leagueEnterPassword.js',
     leagueEditName: './src/pages/leagueEditName.js',
     leagueEditTeams: './src/pages/leagueEditTeams.js',
     leagueEditMatchdays: './src/pages/leagueEditMatchdays.js',
