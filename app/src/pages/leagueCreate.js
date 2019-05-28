@@ -42,6 +42,7 @@ class LeagueCreatePage extends React.Component {
       <TextField 
         label="Passwort"
         fullWidth={true}
+        type="password"
         onChange={this.handlePasswordChange}
      ></TextField>
       <Button className={classes.button} variant="contained" color="primary" onClick={() => league.create(name, password)}>

@@ -14,7 +14,7 @@ const styles = theme => ({
 });
 
 
-class LeaguePasswordPage extends React.Component {
+class LeagueEnterPasswordPage extends React.Component {
 
   state = {
     password: ""
@@ -26,8 +26,7 @@ class LeaguePasswordPage extends React.Component {
 
   handlePasswordEnter = () => {
   axios.post('/api/enterPassword.php', {leagueId: league.id, password: this.state.password}).then(function(res) {
-  console.log(res);
-      //window.location.href = "/leagueEditName.php?id=" + league.id;
+      window.location.href = "/leagueEditName.php?id=" + league.id;
   });
   }
 
@@ -40,6 +39,7 @@ class LeaguePasswordPage extends React.Component {
       <TextField 
               label="Passwort"
               fullWidth={true}
+              type="password"
               onChange={this.handlePasswordChange}
            ></TextField>
       <Button className={classes.button} variant="contained" color="primary" onClick={this.handlePasswordEnter}>
@@ -50,5 +50,5 @@ class LeaguePasswordPage extends React.Component {
   }
 }
 
-let Page = withLayout(withStyles(styles)(LeaguePasswordPage));
-ReactDOM.render(<Page />, document.querySelector('#leaguePassword'));
+let Page = withLayout(withStyles(styles)(LeagueEnterPasswordPage));
+ReactDOM.render(<Page />, document.querySelector('#leagueEnterPassword'));

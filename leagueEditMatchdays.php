@@ -1,4 +1,5 @@
-<?php 
+<?php
+include('./inc/checkPassword.php');
 $league = file_get_contents("data/" . $_GET['id'] . ".json");
 ?>
 <!DOCTYPE html>
@@ -10,7 +11,6 @@ $league = file_get_contents("data/" . $_GET['id'] . ".json");
     var league = <?php echo $league; ?>;
     var context = {
         league: league,
-        accessKey: "<?php echo $accessKey; ?>",
         navigation: {
             label: league.name + " - Bearbeiten",
             subnavi: {
@@ -21,7 +21,10 @@ $league = file_get_contents("data/" . $_GET['id'] . ".json");
                 {name: "Spieltage", href: "/leagueEditMatchdays.php?id=" + league.id}
                 ]
             }
-          }
+        },
+        drawer: [
+             {text: "Liga anzeigen", href: "/table.php?id=" + league.id}
+            ]
     };
 </script>
 

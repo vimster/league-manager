@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
+import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogActions from '@material-ui/core/DialogActions';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
 import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -85,7 +88,9 @@ function withLayout(Component) {
   function WithLayout(props) {
 
     const classes = useStyles({theme: theme});
+    const [showDrawer, setShowDrawer] = useState(false);
     const navigation = context.navigation;
+    const drawerElements = context.drawer ? context.drawer : [];
 
     let subnavi;
     if (navigation.subnavi) {
@@ -103,12 +108,34 @@ function withLayout(Component) {
     </Paper>;
     }
 
+    const drawerList = () => (
+    <div
+      className={classes.list}
+      role="presentation">
+      <List>
+        {drawerElements.map((element, index) => (
+          <ListItem button key={element.text} onClick={() => window.location.href = element.href}>
+            <ListItemIcon><MailIcon /></ListItemIcon>
+            <ListItemText primary={element.text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+          <ListItem button key="NewLeague" onClick={() => window.location.href = "/leagueCreate.php"}>
+            <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItemText primary="Neue Liga anlegen" />
+          </ListItem>
+      </List>
+    </div>
+  );
+
     return (
       <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <AppBar position="static">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+          <IconButton className={classes.menuButton} onClick={() => setShowDrawer(true)} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
@@ -117,6 +144,10 @@ function withLayout(Component) {
         </Toolbar>
         </AppBar>
           {subnavi}
+
+      <Drawer open={showDrawer} onClose={() => setShowDrawer(false)}>
+        {drawerList()}
+      </Drawer>
             <main className={classes.container}>
     <Paper className={classes.paper}>
         <Component {...props} />   

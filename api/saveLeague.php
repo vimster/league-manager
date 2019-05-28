@@ -23,8 +23,8 @@ $passwords = json_decode(file_get_contents($passwordfilename));
 if (file_exists($filename)) {
 	$password = $_SESSION['password_' . $id];
 
-	if (!isset($password) || $password != $passwords[$id]) {
-	   header('Location: '.'/leaguePassword.php?id=' . $id);
+	if (!isset($password) || $password != $passwords->$id) {
+	   header('Location: '.'/leagueEnterPassword.php?id=' . $id);
 	   exit();
 	}
 
@@ -32,14 +32,17 @@ if (file_exists($filename)) {
 	exit();
 }
 
+
 // Create new league
 
 $password = $formdata->password;
 
-if (!isset($password) || isset($passwords[$id])) {
+
+if (!isset($password) || property_exists($passwords, $id)) {
 	exit();
 }
-$passwords[$id] = $password;
+
+$passwords->$id = $password;
 file_put_contents($passwordfilename, json_encode($passwords));
 file_put_contents($filename, json_encode($formdata->league));
 
