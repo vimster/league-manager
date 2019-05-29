@@ -1,17 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogActions from '@material-ui/core/DialogActions';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Paper from '@material-ui/core/Paper';
+import Hidden from '@material-ui/core/Hidden';
 import { withStyles } from '@material-ui/core/styles';
 import league from '../data/league';
 import Table from '@material-ui/core/Table';
@@ -25,10 +13,8 @@ const styles = theme => ({
     width: '100%',
     marginTop: theme.spacing(3),
     overflowX: 'auto',
-  },
-  table: {
-    minWidth: 700,
-  },
+  }
+
 });
 
 class ResultTable extends React.Component {
@@ -61,8 +47,12 @@ class ResultTable extends React.Component {
             <TableCell align="center">Platz</TableCell>
             <TableCell align="center">Mannschaft</TableCell>
             <TableCell align="center">Spiele</TableCell>
+            <Hidden smDown>
             <TableCell align="center">Bälle</TableCell>
+            </Hidden>
+            <Hidden xsDown>
             <TableCell align="center">Sätze</TableCell>
+            </Hidden>
             <TableCell align="center">Punkte</TableCell>
           </TableRow>
         </TableHead>
@@ -72,9 +62,13 @@ class ResultTable extends React.Component {
               <TableCell align="center">{index + 1}</TableCell>
               <TableCell align="left">{team.name}</TableCell>
               <TableCell align="center">{team.games}</TableCell>
+              <Hidden smDown>
               <TableCell align="center">{team.balls}:{team.ballsAgainst}</TableCell>
+              </Hidden>
+              <Hidden xsDown>
               <TableCell align="center">{team.sets}:{team.setsAgainst}</TableCell>
-              <TableCell align="center">{team.points}:{team.pointsAgainst}</TableCell>
+              </Hidden>
+              <TableCell align="center"><b>{team.points}:{team.pointsAgainst}</b></TableCell>
             </TableRow>
           ))}
         </TableBody>
