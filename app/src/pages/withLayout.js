@@ -14,8 +14,8 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import TableChartIcon from '@material-ui/icons/TableChart';
+import AddIcon from '@material-ui/icons/AddCircleOutlined';
 import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -115,7 +115,7 @@ function withLayout(Component) {
       <List>
         {drawerElements.map((element, index) => (
           <ListItem button key={element.text} onClick={() => window.location.href = element.href}>
-            <ListItemIcon><MailIcon /></ListItemIcon>
+            <ListItemIcon><TableChartIcon /></ListItemIcon>
             <ListItemText primary={element.text} />
           </ListItem>
         ))}
@@ -123,7 +123,7 @@ function withLayout(Component) {
       <Divider />
       <List>
           <ListItem button key="NewLeague" onClick={() => window.location.href = "/leagueCreate.php"}>
-            <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItemIcon><AddIcon /></ListItemIcon>
             <ListItemText primary="Neue Liga anlegen" />
           </ListItem>
       </List>

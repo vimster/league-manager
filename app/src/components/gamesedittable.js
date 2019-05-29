@@ -16,10 +16,7 @@ const styles = theme => ({
     width: '100%',
     marginTop: theme.spacing(3),
     overflowX: 'auto',
-  },
-  table: {
-    minWidth: 700,
-  },
+  }
 });
 
 class GamesEditTable extends React.Component {

@@ -7,6 +7,7 @@ import league from '../data/league';
 import TeamList from '../components/teamlist';
 import TextField from '@material-ui/core/TextField';
 
+
 const styles = theme => ({
   button: {
     margin: '30px',
@@ -17,10 +18,6 @@ const styles = theme => ({
 class LeagueEditTeamsPage extends React.Component {
   state = {
     teams: league.teams
-  }
-
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
   }
 
   handleRemoveTeam = id => {
@@ -49,6 +46,7 @@ class LeagueEditTeamsPage extends React.Component {
     return (
       <div>
       <TeamList teams={teams} handleTeamnameChange={this.handleTeamnameChange} handleRemove={this.handleRemoveTeam} />
+
       <TextField 
               fullWidth={true}
               label="Mannschaftsname"

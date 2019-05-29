@@ -20,12 +20,11 @@ class TeamList extends React.Component {
     var teamItems = teams.map((team) => {
     return (
       <ListItem key={team.id}>
-      <ListItemIcon>
       <TextField 
           value={team.name}
+          fullWidth={true}
           onChange={(event) => handleTeamnameChange(team, event.target.value) }
        ></TextField>
-      </ListItemIcon>
       <ListItemSecondaryAction>
                       <IconButton aria-label="Delete" onClick={() => handleRemove(team.id)}>
                         <DeleteIcon />

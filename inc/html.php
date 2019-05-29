@@ -1,7 +1,7 @@
 <head>
     <title>Liga Manager</title>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="shortcut icon" href="/public/favicon.ico" />
     <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
     <meta name="theme-color" content="#000000" />
