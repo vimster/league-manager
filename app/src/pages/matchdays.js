@@ -51,7 +51,7 @@ class Matchdays extends React.Component {
             onChange={this.selectMatchday}
           >
           {matchdays.map((matchday, index) => (
-            <MenuItem value={index}><b>{index+1}. Spieltag</b> - {moment(matchday.date).format("dddd, Do MMMM YYYY")}</MenuItem>
+            <MenuItem key={index} value={index}><b>{index+1}. Spieltag</b> - {moment(matchday.date).format("dddd, Do MMMM YYYY")}</MenuItem>
           ))}
           </Select>
             <br /><br /><br />

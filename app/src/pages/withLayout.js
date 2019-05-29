@@ -4,17 +4,20 @@ import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import PropTypes from 'prop-types';
+import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import TableChartIcon from '@material-ui/icons/TableChart';
+import MailIcon from '@material-ui/icons/Email';
 import AddIcon from '@material-ui/icons/AddCircleOutlined';
 import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
@@ -24,6 +27,16 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles, ThemeProvider } from '@material-ui/styles';
 import context from 'context';
 
+
+function MadeWithLove(classes) {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+            <IconButton className={classes.fab} color="inherit" href="mailto:mr.potsdam@gmx.de">
+            <MailIcon label="Kontakt" />
+            </IconButton>
+    </Typography>
+  );
+}
 
 // A theme with custom primary and secondary color.
 // It's optional.
@@ -76,6 +89,13 @@ const useStyles = makeStyles(() => {
   },
   grow: {
     flexGrow: 1,
+  },
+  footer: {
+    marginTop: theme.spacing(8),
+    padding: theme.spacing(1, 0)
+  },
+    fab: {
+    margin: theme.spacing(1),
   },
   menuButton: {
     marginLeft: -12,
@@ -154,6 +174,10 @@ function withLayout(Component) {
         </Paper>
         </main>
       </div>
+
+      <footer className={classes.footer}>
+          <MadeWithLove classes={classes} />
+      </footer>
     </ThemeProvider>
     );
   }
