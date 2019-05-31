@@ -153,6 +153,9 @@ league.save = function() {
 }
 
 league.create = function(name, password) {
+	if (!name || !password) {
+		return;
+	}
 	let id = shortid.generate();
 	league.id = id;
 	league.name = name;

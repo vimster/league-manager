@@ -16,9 +16,12 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
 import TableChartIcon from '@material-ui/icons/TableChart';
 import MailIcon from '@material-ui/icons/Email';
 import AddIcon from '@material-ui/icons/AddCircleOutlined';
+import EditIcon from '@material-ui/icons/Edit';
+import ExportIcon from '@material-ui/icons/ImportExport';
 import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -29,11 +32,12 @@ import context from 'context';
 
 
 function MadeWithLove(classes) {
+              //<IconButton className={classes.fab} color="inherit" href="mailto:mr.potsdam@gmx.de">
+            //<MailIcon label="Kontakt" />
+            //</IconButton>
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-            <IconButton className={classes.fab} color="inherit" href="mailto:mr.potsdam@gmx.de">
-            <MailIcon label="Kontakt" />
-            </IconButton>
+
     </Typography>
   );
 }
@@ -57,6 +61,15 @@ const theme = createMuiTheme({
     useNextVariants: true,
   },
 });
+
+const getIcon = (key) => {
+  if (key === "show")
+    return (<TableChartIcon />);
+  if (key === "edit")
+    return (<EditIcon />);
+  if (key === "export")
+    return (<ExportIcon />);
+}
 
 const useStyles = makeStyles(() => {
   return {
@@ -132,19 +145,24 @@ function withLayout(Component) {
     <div
       className={classes.list}
       role="presentation">
-      <List>
+      {drawerElements.length > 0 &&
+      <List subheader={<ListSubheader>Ligaoptionen</ListSubheader>}>
         {drawerElements.map((element, index) => (
           <ListItem button key={element.text} onClick={() => window.location.href = element.href}>
-            <ListItemIcon><TableChartIcon /></ListItemIcon>
+            <ListItemIcon>{getIcon(element.icon)}</ListItemIcon>
             <ListItemText primary={element.text} />
           </ListItem>
         ))}
-      </List>
-      <Divider />
-      <List>
+      </List>}
+
+      <List subheader={<ListSubheader>Optionen</ListSubheader>}>
           <ListItem button key="NewLeague" onClick={() => window.location.href = "/leagueCreate.php"}>
             <ListItemIcon><AddIcon /></ListItemIcon>
             <ListItemText primary="Neue Liga anlegen" />
+          </ListItem>
+          <ListItem button key="Contact" onClick={() => window.location.href = "mailto:mr.potsdam@gmx.de"}>
+            <ListItemIcon><MailIcon /></ListItemIcon>
+            <ListItemText primary="Kontakt" />
           </ListItem>
       </List>
     </div>

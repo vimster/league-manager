@@ -1,6 +1,5 @@
 <?php 
-$league = file_get_contents("data/" . $_GET['id'] . ".json");
-$accessKey = "verysecurekey";
+include('./inc/getLeague.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +19,11 @@ $accessKey = "verysecurekey";
                 {name: "Spieltage", href: "/matchdays.php?id=" + league.id}
                 ]
             }
-        }
+        },
+        drawer: [
+            {text: "Liga bearbeiten", href: "/leagueEditName.php?id=" + league.id, icon: "edit"},
+            {text: "Liga exportieren", href: "/leagueExport.php?id=" + league.id, icon: "export"}
+        ]
     };
 </script>
 

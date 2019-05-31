@@ -34,12 +34,14 @@ class LeagueCreatePage extends React.Component {
 
     return (
       <div className={classes.root}>
-      <TextField 
+      <TextField
+              required
               label="Liganame"
               fullWidth={true}
               onChange={this.handleNameChange}
            ></TextField>
-      <TextField 
+      <TextField
+        required
         label="Passwort"
         fullWidth={true}
         type="password"

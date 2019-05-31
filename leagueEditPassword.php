@@ -1,6 +1,6 @@
 <?php 
-$league = file_get_contents("data/" . $_GET['id'] . ".json");
-$accessKey = "verysecurekey";
+include('./inc/checkPassword.php');
+include('./inc/getLeague.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

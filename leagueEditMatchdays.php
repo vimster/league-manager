@@ -1,6 +1,6 @@
 <?php
 include('./inc/checkPassword.php');
-$league = file_get_contents("data/" . $_GET['id'] . ".json");
+include('./inc/getLeague.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +23,8 @@ $league = file_get_contents("data/" . $_GET['id'] . ".json");
             }
         },
         drawer: [
-             {text: "Liga anzeigen", href: "/table.php?id=" + league.id}
+             {text: "Liga anzeigen", href: "/table.php?id=" + league.id, icon: "show"},
+             {text: "Liga exportieren", href: "/leagueExport.php?id=" + league.id, icon: "export"}
             ]
     };
 </script>

@@ -1,5 +1,5 @@
 <?php
-$league = file_get_contents("data/" . $_GET['id'] . ".json");
+include('./inc/getLeague.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

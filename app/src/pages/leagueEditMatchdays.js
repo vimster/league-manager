@@ -39,8 +39,9 @@ class LeagueEditMatchdaysPage extends React.Component {
     this.setState({matchdays: league.matchdays});
   }
 
-  handleGameChange = (game) => {
-
+  removeGame = (matchday, gameIndex) => {
+    matchday.games.splice(gameIndex, 1);
+    this.setState({matchdays: league.matchdays});
   }
 
   refresh = () => {
@@ -66,7 +67,7 @@ class LeagueEditMatchdaysPage extends React.Component {
             value={matchday.date}
             onChange={(event) => this.handleDateChange(matchday, event.target.value)}
           />
-          <GamesEditTable refresh={this.refresh} games={matchday.games} />
+          <GamesEditTable refresh={this.refresh} games={matchday.games} removeGame={(gameIndex) => this.removeGame(matchday, gameIndex)} />
 
           <Button variant="contained" color="primary" className={classes.button} onClick={() => this.addGame(matchday)}>
             Begegnung hinzufügen

@@ -9,6 +9,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 import league from '../data/league';
 
 const styles = theme => ({
@@ -23,7 +25,7 @@ class GamesEditTable extends React.Component {
 
   render() {
 
-    const { refresh, classes, games } = this.props;
+    const { refresh, classes, games, removeGame } = this.props;
     const teams = league.teams;
 
     return (
@@ -37,6 +39,7 @@ class GamesEditTable extends React.Component {
             <TableCell align="center">Satz 3</TableCell>
             <TableCell align="center">Satz 4</TableCell>
             <TableCell align="center">Satz 5</TableCell>
+            <TableCell align="center"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -45,7 +48,7 @@ class GamesEditTable extends React.Component {
               <TableCell>
                 <Select value={game.team1} onChange={(event) => {game.team1 = event.target.value; refresh()}}>
                           {teams.map((team) => (
-                   <MenuItem value={team.id}>{team.name}</MenuItem>
+                   <MenuItem key={team.id} value={team.id}>{team.name}</MenuItem>
                 ))}
                 </Select>
 
@@ -53,7 +56,7 @@ class GamesEditTable extends React.Component {
               <TableCell align="left">
                 <Select value={game.team2} onChange={(event) => {game.team2 = event.target.value; refresh()}}>
                           {teams.map((team) => (
-                   <MenuItem value={team.id}>{team.name}</MenuItem>
+                   <MenuItem key={team.id} value={team.id}>{team.name}</MenuItem>
                 ))}
                 </Select>
               </TableCell>
@@ -87,7 +90,11 @@ class GamesEditTable extends React.Component {
 <TextField style={{width: 40}} value={game.set52} onChange={(event) => {game.set52 = parseInt(event.target.value); refresh()}} type="number" />
               
               </TableCell>
-
+              <TableCell>
+                      <IconButton aria-label="Delete" onClick={() => removeGame(index)}>
+                        <DeleteIcon />
+                      </IconButton>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
