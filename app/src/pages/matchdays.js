@@ -17,19 +17,7 @@ const styles = theme => ({
 
 class Matchdays extends React.Component {
   state = {
-    selectedMatchday: 0
-  };
-
-  handleClose = () => {
-    this.setState({
-      open: false,
-    });
-  };
-
-  handleClick = () => {
-    this.setState({
-      open: true,
-    });
+    selectedMatchday: league.matchdays.length - 1
   };
 
   selectMatchday = event => {

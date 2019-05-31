@@ -35,6 +35,9 @@ class GamesTable extends React.Component {
   render() {
 
     const { classes, games } = this.props;
+    const result = (p1, p2) => {
+      return (p1 ? p1 : "-") + ":" + (p2 ? p2 : "-");
+    }
 
     return (
 <Table className={classes.table}>
@@ -58,11 +61,11 @@ class GamesTable extends React.Component {
               <TableCell>{league.getTeamnameById(game.team1)}</TableCell>
               <TableCell align="left">{league.getTeamnameById(game.team2)}</TableCell>
               <Hidden smDown>
-              <TableCell align="center">{game.set11}:{game.set12}</TableCell>
-              <TableCell align="center">{game.set21}:{game.set22}</TableCell>
-              <TableCell align="center">{game.set31}:{game.set32}</TableCell>
-              <TableCell align="center">{game.set41}:{game.set42}</TableCell>
-              <TableCell align="center">{game.set51}:{game.set52}</TableCell>
+              <TableCell align="center">{result(game.set11, game.set12)}</TableCell>
+              <TableCell align="center">{result(game.set21, game.set22)}</TableCell>
+              <TableCell align="center">{result(game.set31, game.set32)}</TableCell>
+              <TableCell align="center">{result(game.set41, game.set42)}</TableCell>
+              <TableCell align="center">{result(game.set51, game.set52)}</TableCell>
               </Hidden>
               <TableCell align="center"><b>{league.getSets(game, true)}:{league.getSets(game, false)}</b></TableCell>
             </TableRow>

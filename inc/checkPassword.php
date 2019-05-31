@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
-
 $id = preg_replace("/[^A-Za-z0-9 ]/", '', $_GET['id']);
 if (!isset($id)) {
 	exit();

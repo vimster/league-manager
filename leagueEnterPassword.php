@@ -11,7 +11,7 @@ include('./inc/getLeague.php');
     var context = {
        league: league,
         navigation: {
-            label: league.name + " - Bearbeiten"
+            label: league.name
           }
     };
 </script>

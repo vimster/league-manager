@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
-
 $json = file_get_contents('php://input');
 $formdata = json_decode($json);
 
