@@ -38,6 +38,7 @@ if (!isset($password) || property_exists($passwords, $id)) {
 	exit();
 }
 
+// TODO: date('Y-m-d') add created attribute
 $passwords->$id = $password;
 file_put_contents($passwordfilename, json_encode($passwords));
 file_put_contents($filename, json_encode($formdata->league));
