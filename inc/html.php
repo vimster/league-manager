@@ -1,5 +1,5 @@
 <head>
-    <title>Liga Manager</title>
+    <title><?php if (isset($leagueTitle)) echo $leagueTitle; else echo "Liga Manager"; ?></title>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="/public/favicon.ico" />
     <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no" />
