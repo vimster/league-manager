@@ -83,6 +83,11 @@ league.getTable = function() {
 		var points1 = sets1 > sets2 ? 2 : 0;
 		var points2 = sets2 > sets1 ? 2 : 0;
 
+		if (sets1 === sets2) {
+			points1 = 1;
+			points2 = 1;
+		}
+
 		// Team 1
 		if (team1) {
 			team1.games++;
