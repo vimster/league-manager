@@ -46,7 +46,9 @@ class ResultTable extends React.Component {
           <TableRow>
             <TableCell align="center">Platz</TableCell>
             <TableCell align="center">Mannschaft</TableCell>
+            <Hidden xsDown>
             <TableCell align="center">Spiele</TableCell>
+            </Hidden>
             <Hidden smDown>
             <TableCell align="center">Bälle</TableCell>
             </Hidden>
@@ -61,7 +63,9 @@ class ResultTable extends React.Component {
             <TableRow key={index}>
               <TableCell align="center">{index + 1}</TableCell>
               <TableCell align="left">{team.name}</TableCell>
+              <Hidden xsDown>
               <TableCell align="center">{team.games}</TableCell>
+              </Hidden>
               <Hidden smDown>
               <TableCell align="center">{team.balls}:{team.ballsAgainst}</TableCell>
               </Hidden>
