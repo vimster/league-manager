@@ -7,6 +7,7 @@ let league = context.league;
 if (!league) {
 	league = {
 		name: "",
+		tableSort: "ABSOLUTE",
 		teams: [],
 		matchdays: []
 	}
@@ -111,10 +112,24 @@ league.getTable = function() {
 	}
 
 	return table.sort((team1, team2) => {
-		if (team1.points === team2.points) {
-			return team2.sets - team1.sets;
-		}
-		return team2.points - team1.points;
+        if (this.tableSort === 'DIFFERENCE') {
+        	let team1Difference = team1.points - team1.pointsAgainst;
+        	let team2Difference = team2.points - team2.pointsAgainst;
+			if (team1Difference === team2Difference) {
+				if (team1.points === team2.points) {
+					return team2.sets - team1.sets;
+				}				
+				return team2.points - team1.points;
+			}
+			return team2Difference - team1Difference;
+        } else {
+			if (team1.points === team2.points) {
+				return team2.sets - team1.sets;
+			}
+			return team2.points - team1.points;        	
+        }
+
+
 	});
 };
 

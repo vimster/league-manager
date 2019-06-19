@@ -16,7 +16,7 @@ include('./inc/getLeague.php');
             subnavi: {
                 selected: "Mannschaften",
                 items: [
-                {name: "Name", href: "/leagueEditName.php?id=" + league.id},
+                {name: "Einstellungen", href: "/leagueEditName.php?id=" + league.id},
                 {name: "Mannschaften", href: "/leagueEditTeams.php?id=" + league.id},
                 {name: "Spieltage", href: "/leagueEditMatchdays.php?id=" + league.id}
                 ]
